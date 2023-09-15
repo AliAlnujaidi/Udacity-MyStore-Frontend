@@ -1,0 +1,6 @@
+<nav>
+  <h1>{{ title }}</h1>
+  <ul>
+    <li><a *ngFor="let item of items" routerLink="/{{item.toLowerCase()}}" routerLinkActive="active">{{item}}</a></li>
+  </ul>
+</nav>

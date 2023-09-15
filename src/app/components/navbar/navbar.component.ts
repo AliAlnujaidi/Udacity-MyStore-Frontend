@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  title: string = 'Navbar';
-
+  title: string = 'My Store';
+  items: string[] = [];
   constructor() { }
 
   ngOnInit() {
+    this.items = ['Home', 'Items', 'About', 'Contact'];
   }
 
 }
