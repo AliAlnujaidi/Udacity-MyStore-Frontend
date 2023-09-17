@@ -12,14 +12,13 @@ export class OrderSuccessComponent {
     this.order = {
       name: 'zzz',
       address: '',
-      cardNumber: '',
+      cardNumber: 0,
       total: 0
     };
    }
 
   ngOnInit() {
     const orders = this.orderService.getOrders();
-    console.log(orders);
     this.order = orders[orders.length - 1];
 
   }

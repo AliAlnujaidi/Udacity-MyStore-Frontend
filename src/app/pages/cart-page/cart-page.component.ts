@@ -13,7 +13,10 @@ export class CartPageComponent {
   total: number = 0;
   name: string = '';
   address: string = '';
-  cardNumber: string = '';
+  cardNumber!: number;
+  nameError: boolean = false;
+  addressError: boolean = false;
+  cardNumberError: boolean = false;
 
   constructor(
     private cartService: CartService,
@@ -30,6 +33,27 @@ export class CartPageComponent {
     this.cartService.removeFromCart(product);
     this.total = this.cartService.calculateTotal();
   }
+  onCardNumberChange(value: string) {
+    if (value.length < 16) {
+      this.cardNumberError = true;
+      return;
+    }
+    this.cardNumberError = false;
+  }
+  onNameChange(value: string) {
+    if (value.length < 6) {
+      this.nameError = true;
+      return;
+    }
+    this.nameError = false;
+  }
+  onAddressChange(value: string) {
+    if (value.length < 6) {
+      this.addressError = true;
+      return;
+    }
+    this.addressError = false;
+  }
 
   onCheckout() {
     const order = {
@@ -38,6 +62,7 @@ export class CartPageComponent {
       cardNumber: this.cardNumber,
       total: this.total,
     };
+
     this.orderService.addOrder(order);
     this.cartService.clearCart();
     this.cart = [];

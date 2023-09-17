@@ -10,6 +10,8 @@ import { CartService } from 'src/app/services/cart/cart.service';
 })
 export class ProductCardComponent {
   @Input() product: Product;
+  @Output() cartAlert :EventEmitter<Cart> = new EventEmitter<Cart>();
+
   quantity: number = 1;
 
   constructor(private cartService: CartService) {
@@ -43,5 +45,6 @@ export class ProductCardComponent {
     };
     this.cartService.addToCart(cartProduct);
     this.quantity = 1;
+    this.cartAlert.emit(cartProduct);
   }
 }

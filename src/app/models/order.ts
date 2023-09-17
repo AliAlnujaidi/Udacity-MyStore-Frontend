@@ -3,5 +3,5 @@ export interface Order{
     name: string;
     total: number;
     address: string;
-    cardNumber: string;
+    cardNumber: number;
 }

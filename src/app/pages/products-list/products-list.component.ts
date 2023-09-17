@@ -19,4 +19,7 @@ export class ProductsListComponent {
     });
   }
 
+  onCartAlert(product: Cart) {
+    alert(`Product ${product.name} added to cart with a quantity of ${product.quantity}`);
+  }
 }

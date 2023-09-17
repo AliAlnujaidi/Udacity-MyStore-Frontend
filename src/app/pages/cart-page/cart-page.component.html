@@ -11,7 +11,8 @@
   <h1 style="margin-bottom: 100px" *ngIf="cart.length === 0">
     To add some products please visit Products page...
   </h1>
-  <div *ngIf="cart.length != 0" style="display: flex">
+  <!-- *ngIf="cart.length != 0" -->
+  <div style="display: flex">
     <div>
       <div
         *ngFor="let product of cart"
@@ -55,37 +56,49 @@
           <input
             type="text"
             required
+            minlength="6"
             maxlength="30"
             name="name"
+            (ngModelChange)="onNameChange($event)"
             [(ngModel)]="name"
             type="name"
             class="form-control"
             placeholder="Enter your name"
           />
+          <p *ngIf="nameError" style="color: red;">Please provide valid name. minimum length for name is 6</p>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Address</label>
+          <label>Address</label>
           <input
-            type="address"
+            type="text"
             required
+            minlength="6"
+            maxlength="30"
             name="address"
+            (ngModelChange)="onAddressChange($event)"
             [(ngModel)]="address"
+            type="address"
             class="form-control"
-            placeholder="Address"
+            placeholder="Enter your address"
           />
+          <p *ngIf="addressError" style="color: red;">Please provide valid address. minimum length for address is 6</p>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Credit Card Number</label>
+          <label>Credit card number</label>
           <input
+            type="card"
             required
+            name="card"
             minlength="16"
             maxlength="16"
             [(ngModel)]="cardNumber"
-            type="addreess"
+            (ngModelChange)="onCardNumberChange($event)"
             class="form-control"
-            placeholder="Credit Card Number"
+            placeholder="Card Number"
           />
+          <p *ngIf="cardNumberError" style="color: red;">Please provide a valid card number.</p>
         </div>
+
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
           Submit
         </button>
