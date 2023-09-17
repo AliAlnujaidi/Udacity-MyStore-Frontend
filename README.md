@@ -1,6 +1,7 @@
 # Udacity-MyStore-Frontend
 
-This project is a frontend for a ecommerce webapp.
+This project is a frontend for a ecommerce webapp. 
+Built using Angular and bootstrap as css framework.
 
 ## Development server
 
