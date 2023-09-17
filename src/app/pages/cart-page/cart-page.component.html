@@ -1,0 +1,97 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+  "
+>
+  <h1 style="margin-bottom: 100px" *ngIf="cart.length === 0">
+    To add some products please visit Products page...
+  </h1>
+  <div *ngIf="cart.length != 0" style="display: flex">
+    <div>
+      <div
+        *ngFor="let product of cart"
+        class="card mb-5"
+        style="max-width: 900px"
+      >
+        <div class="row no-gutters">
+          <div class="col-lg-3">
+            <img src="{{ product.url }}" height="200" width="200" />
+          </div>
+          <div class="col-lg-6" style="width: 570px">
+            <div
+              class="card-body"
+              style="display: flex; justify-content: space-between"
+            >
+              <div>
+                <h3 class="card-title">{{ product.name }}</h3>
+                <h4>{{ product.price | currency : "$" }}</h4>
+                <p class="card-text">{{ product.description }}</p>
+                <h5 class="card-text">quantity: {{ product.quantity }}</h5>
+              </div>
+              <div>
+                <button
+                  (click)="removeFromCart(product)"
+                  class="btn btn-danger"
+                >
+                  Remove from cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-left: 100px; width: 600px">
+      <h2>Total price: {{ total | currency : "$" }}</h2>
+      <h4>Fill you information to proceed with the order:</h4>
+      <form #form="ngForm" (ngSubmit)="onCheckout()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Full Name</label>
+          <input
+            type="text"
+            required
+            maxlength="30"
+            name="name"
+            [(ngModel)]="name"
+            type="name"
+            class="form-control"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Address</label>
+          <input
+            type="address"
+            required
+            name="address"
+            [(ngModel)]="address"
+            class="form-control"
+            placeholder="Address"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Credit Card Number</label>
+          <input
+            required
+            minlength="16"
+            maxlength="16"
+            [(ngModel)]="cardNumber"
+            type="addreess"
+            class="form-control"
+            placeholder="Credit Card Number"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div></div>
+  </div>
+</div>

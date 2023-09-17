@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Udacity-MyStore-Project": {
+    "udacity-my-store-project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -60,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Udacity-MyStore-Project:build:production"
+              "browserTarget": "udacity-my-store-project:build:production"
             },
             "development": {
-              "browserTarget": "Udacity-MyStore-Project:build:development"
+              "browserTarget": "udacity-my-store-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Udacity-MyStore-Project:build"
+            "browserTarget": "udacity-my-store-project:build"
           }
         },
         "test": {
@@ -79,7 +80,7 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/udacity-my-store-project"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -87,7 +88,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []

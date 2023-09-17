@@ -1,3 +1,59 @@
-<p>product-page works!</p>
-<h1>weewwwwwwwwwwwwwwww</h1>
-<app-item></app-item>
+<div style="margin: 40px">
+  <div
+    style="
+      margin: auto;
+      width: 700px;
+      height: 1150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: solid 1px #e6e6e6;
+      border-radius: 5px;
+    "
+  >
+    <img
+      src="{{ product.url }}"
+      style="align-self: center; width: 600px; justify-items: normal"
+    />
+    <h1 class="card-title">{{ product.name }}</h1>
+    <h4 class="card-text">{{ product.price | currency : "$" }}</h4>
+    <h5 style="width: 600px" class="card-text">
+      This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.
+    </h5>
+    <div
+      style="
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 600px;
+      "
+    >
+      <div class="row">
+        <div class="col-4">
+          <button class="btn btn-outline-primary" (click)="subtractQuantity()">
+            -
+          </button>
+        </div>
+        <div class="col-3">
+          <h4>{{ quantity }}</h4>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary" (click)="addQuantity()">
+            +
+          </button>
+        </div>
+      </div>
+
+      <button
+        style="width: 200px"
+        type="button"
+        class="btn btn-primary"
+        (click)="onAddToCart(product)"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

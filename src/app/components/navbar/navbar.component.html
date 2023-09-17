@@ -1,6 +1,17 @@
-<nav>
-  <h1>{{ title }}</h1>
-  <ul>
-    <li><a *ngFor="let item of items" routerLink="/{{item.toLowerCase()}}" routerLinkActive="active">{{item}}</a></li>
-  </ul>
-</nav>
+<div class="navbar">
+  <div routerLink="/" class="logo">
+    <h1>My Store</h1>
+  </div>
+  <div class="content">
+    <a routerLink="/">Home</a>
+    <a routerLink="/products">Products</a>
+  </div>
+  <a routerLink="/cart" class="cart">
+    <img
+      src="../../../assets/shopping-cart.png"
+      height="40"
+      width="40"
+      style="margin-right: 20px"
+    />
+  </a>
+</div>
