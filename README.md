@@ -4,5 +4,7 @@ This project is a frontend for a ecommerce webapp.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
-The application will automatically reload if you change any of the source files.
+to start the application 
+- Run ```ng add``` to install dependencies.
+- Run ``ng serve`` to start a dev server.
+- Navigate to `http://localhost:4200/`. 
