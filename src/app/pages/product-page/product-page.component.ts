@@ -13,7 +13,7 @@ export class ProductPageComponent {
   productId: string | null = null;
   products: Product[] = [];
   product: Product;
-  quantity: number = 0;
+  quantity: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -59,6 +59,7 @@ export class ProductPageComponent {
       quantity: this.quantity,
     };
     this.cartService.addToCart(cartProduct);
+    alert('Product added to cart!');
     this.quantity = 1;
   }
 }

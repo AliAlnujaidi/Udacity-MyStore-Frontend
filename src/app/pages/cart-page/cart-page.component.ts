@@ -32,6 +32,7 @@ export class CartPageComponent {
   removeFromCart(product: Cart) {
     this.cartService.removeFromCart(product);
     this.total = this.cartService.calculateTotal();
+    alert(`${product.name} Product removed from cart`);
   }
   onCardNumberChange(value: string) {
     if (value.length < 16) {
